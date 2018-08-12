@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   streetView.bindEvents();
 
 
-  dataLoad = new DataLoad();
-  dataLoad.getData(55.955, -3.182, 10000, 10);
-  str = new StreetView();
-  str.getStreet();
+  // dataLoad = new DataLoad();
+  // dataLoad.getData(55.955, -3.182, 10000, 10);
+  // str = new StreetView();
+  // str.getStreet();
 
   //55.955, -3.182
   // fetch("https://en.wikipedia.org/w/api.php?&origin=*&action=query&list=geosearch&gscoord=55.786952|-122.399523&gsradius=10000&gslimit=10&format=jsonfm")
