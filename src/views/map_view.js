@@ -9,8 +9,6 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Map:attractions-loaded', (event) => {
     const attractions = event.detail;
-  //  console.log(attractions);
-    console.log(attractions);
 
     for(let attraction in attractions.query.pages){
       console.log(attractions.query.pages[attraction]);
@@ -23,26 +21,37 @@ MapView.prototype.bindEvents = function () {
       }
       else
       {
-      marker.bindPopup(`<b>${attraction.title}</b>`);
+      marker.bindPopup(`<a href="https://en.wikipedia.org/?curid=${attraction.pageid}"><b>${attraction.title}</b></a>`);
       }
 
-      if(attraction.terms!=null){
-      marker.bindPopup(`<a href="https://en.wikipedia.org/?curid=${attraction.pageid}"><b>${attraction.title}</b></a><br><p>${attraction.terms.description[0]}</p><img src="${attraction.thumbnail.source}">`);
+      if(attraction.terms!=null && attraction.thumbnail!=null){
+      marker.bindPopup(`<a href="https://en.wikipedia.org/?curid=${attraction.pageid}"><b>${attraction.title}</b></a><br><p>${attraction.terms.description[0]}</p><img src="${attraction.thumbnail.source}">`);};
     };
 
+    });
 
-    }
+    mymap.on('popupopen', this.parseContentForId);
 
-
-    var popup = L.popup(maxWidth=5)
-    .setLatLng([55.955, -3.150])
-    .setContent('<img src="a.png" alt="some image">')
-    .openOn(mymap);
-
-  });
+    // function onPopupOpen(e) {
+    //   var id = this.parseContentForId(e.popup._content);
+    //   console.log(id);
+    // };
 
 
 
 };
+
+MapView.prototype.methodName = function () {
+  console.log("ASDASD");
+};
+
+MapView.prototype.parseContentForId = function (e) {
+  var textToParse = e.popup._content;
+
+  var indexOfFirst = textToParse.indexOf("d=");
+  var indexOfSecond = textToParse.indexOf('">');
+  console.log(textToParse.slice(indexOfFirst+2, indexOfSecond));
+};
+
 
 module.exports = MapView;
