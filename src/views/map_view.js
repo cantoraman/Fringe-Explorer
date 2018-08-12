@@ -17,6 +17,7 @@ MapView.prototype.bindEvents = function () {
       attraction = attractions.query.pages[attraction];
 
       var marker = L.marker([attraction.coordinates[0].lat, attraction.coordinates[0].lon]).addTo(mymap);
+
       if(attraction.thumbnail!=null){
       marker.bindPopup(`<a href="https://en.wikipedia.org/?curid=${attraction.pageid}"><b>${attraction.title}</b></a><br><img src="${attraction.thumbnail.source}">`);
       }
@@ -25,7 +26,10 @@ MapView.prototype.bindEvents = function () {
       marker.bindPopup(`<b>${attraction.title}</b>`);
       }
 
-      //.openPopup();
+      if(attraction.terms!=null){
+      marker.bindPopup(`<a href="https://en.wikipedia.org/?curid=${attraction.pageid}"><b>${attraction.title}</b></a><br><p>${attraction.terms.description[0]}</p><img src="${attraction.thumbnail.source}">`);
+    };
+
 
     }
 

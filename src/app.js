@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchView = new SearchView(searchNode);
   searchView.bindEvents();
 
-  streetView = new StreetView();
+  const infoNode = document.querySelector('.info-text')
+  streetView = new StreetView(infoNode);
   streetView.bindEvents();
 
 
