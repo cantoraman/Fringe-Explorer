@@ -41,6 +41,7 @@ StreetView.prototype.getStreet = function (streetName) {
   const request = new Request(`https://nominatim.openstreetmap.org/search/gb/edinburgh/${streetName}/135?format=json&addressdetails=1`);
   request.get( (data) => {
     let streetCoordinates = this.getStreetCoordinates(data);
+    mymap.setView([streetCoordinates.latitude, streetCoordinates.longitude], 16);
     PubSub.publish('Map:attractions-loader', streetCoordinates);
   });
 };
