@@ -1,0 +1,9 @@
+#map { height: 400px;
+width: 600px;
+border: 2px;
+padding: 20px}
+
+img{
+    width:100%;
+    max-width:30px;
+}
