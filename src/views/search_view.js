@@ -11,7 +11,7 @@ SearchView.prototype.bindEvents = function () {
   this.element.addEventListener('submit', (event) => {
       event.preventDefault();
       const searchInput = event.target.value;
-      PubSub.publish('SelectView:change', selectedIndex);
+      PubSub.publish('SearchView:search-request', searchInput);
     });
 
 };

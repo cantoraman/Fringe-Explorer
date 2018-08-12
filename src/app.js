@@ -1,15 +1,14 @@
 const DataLoad = require('./models/dataLoad.js')
 const StreetView = require('./views/street_view.js')
+const SearchView = require('./views/search_view.js')
 const Request = require('./helpers/request.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const searchNode = document.querySelector('.search-form')
+  const searchView = new SearchView(searchNode);
+  searchView.bindEvents();
 
-  // var geoMap = L.map('map', {
-  //     center: [55.953, 3.188],
-  //     zoom: 13
-  // });
-  const button = document.querySelector('#button');
 
   dataLoad = new DataLoad();
   dataLoad.getData(55.955, -3.182, 10000, 10);
