@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Roboto+Condensed" rel="stylesheet">
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
   crossorigin=""></script>
@@ -39,12 +40,13 @@
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoiY2FudG9yYW1hbiIsImEiOiJjamtwOW5yMzAyd2s4M2twamszdXkwZHJjIn0.1SpYa4-dm5Z3MLYmpOf7Yg'
 }).addTo(mymap);
+    var markers = new L.FeatureGroup();
      </script>
      <div class="info-text">
-<p>The Edinburgh Festival Fringe (often referred to as simply The Fringe) is the world's largest arts festival, which in 2017 spanned 25 days and featured 53,232 performances of 3,398 shows[1] in 300 venues.[2] Established in 1947 as an alternative to the Edinburgh International Festival, it takes place annually in Edinburgh, Scotland, in the month of August.[3]
-
+<p>The Edinburgh Festival Fringe (often referred to as simply The Fringe) is the world's largest arts festival, which in 2017 spanned 25 days and featured 53,232 performances of 3,398 shows in 300 venues. Established in 1947 as an alternative to the Edinburgh International Festival, it takes place annually in Edinburgh, Scotland, in the month of August.
+  <br>
 It is an open access (or "unjuried") performing arts festival, meaning there is no selection committee, and anyone may participate, with any type of performance. The official Fringe Programme categorises shows into sections for theatre, comedy, dance, physical theatre, circus, cabaret, children's shows, musicals, opera, music, spoken word, exhibitions and events. Comedy is the largest section and the one that in modern times has the highest public profile, due in part to the Edinburgh Comedy Awards.
-
+<br>
 The Festival is supported by the Festival Fringe Society, which publishes the programme, sells tickets to all events from a central physical box office and website, and offers year-round advice and support to performers. The Society's permanent location is at the Fringe Shop on the Royal Mile, and in August they also manage Fringe Central, a separate collection of spaces in Appleton Tower and other University of Edinburgh buildings, dedicated to providing support for Fringe participants during their time at the festival.</p>
      </div>
     </div>

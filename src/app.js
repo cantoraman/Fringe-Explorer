@@ -23,27 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // dataLoad.getData(55.955, -3.182, 10000, 10);
-  // str = new StreetView();
-  // str.getStreet();
-
-  //55.955, -3.182
-  // fetch("https://en.wikipedia.org/w/api.php?&origin=*&action=query&list=geosearch&gscoord=55.786952|-122.399523&gsradius=10000&gslimit=10&format=jsonfm")
-  // .then(function(resp) {
-  //     return resp.json()
-  // });
-
-
-
-  // button.addEventListener('click', ()=>{
-  // //mouseover=)
-  // console.log("CLCKD");
-  // // const resultParagraph = document.querySelector('#button-result');
-  // // resultParagraph.textContent = 'The Button is on fire!';
-  // });
-
-//api.php?action=query&list=geosearch&gscoord=37.786952|-122.399523&gsradius=10000&gslimit=10
-
-
 
 });

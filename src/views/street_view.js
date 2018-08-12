@@ -10,12 +10,11 @@ StreetView.prototype.bindEvents = function () {
 
   PubSub.subscribe('SearchView:search-request', (event) => {
     const streetName = event.detail;
+
     this.getStreet(streetName);
     });
 
   PubSub.subscribe('MapView:select-marker', (event) => {
-    //id'den wikipedia sayfasi bul
-
     const request = new Request(`https://en.wikipedia.org/w/api.php?pageids=${event.detail}&format=json&origin=*&action=query&prop=extracts&exsentences=3`);
 
     request.get( (data) => {
