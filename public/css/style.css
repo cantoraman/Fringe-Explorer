@@ -1,16 +1,27 @@
 .container{
+  /* We first create a flex layout context */
+  margin: 2%;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-evenly;
+
+  /* Then we define the flow direction
+     and if we allow the items to wrap
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
 }
 
 .info-text, #map{
-  flex: none;
+margin: auto;
+width: 40%
 }
 
 #map { height: 400px;
-width: 600px;
+
 border: 2px;
 padding: 20px}
 
