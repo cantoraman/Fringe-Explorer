@@ -1,4 +1,4 @@
-# Fringe-Explorer
+# Fringe Explorer
 JavaScript application to show nearby attractions of Fringe Festival Venues in Edinburgh
 
 
