@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   dataLoad.bindEvents();
 
 
+
   // dataLoad.getData(55.955, -3.182, 10000, 10);
   // str = new StreetView();
   // str.getStreet();

@@ -14,25 +14,31 @@ StreetView.prototype.bindEvents = function () {
     });
 
   PubSub.subscribe('MapView:select-marker', (event) => {
-    const infoParagraph = event.detail;
-    const infoNode = document.createElement('p');
-    infoNode.textContent = infoParagraph;
-    this.element.innerHTML = '';
-    this.element.appendChild(infoParagraph);
+    //id'den wikipedia sayfasi bul
 
+    const request = new Request(`https://en.wikipedia.org/w/api.php?pageids=${event.detail}&format=json&origin=*&action=query&prop=extracts&exsentences=3`);
 
+    request.get( (data) => {
+      this.displayWikiText(data);
     });
+  });
 };
 
+StreetView.prototype.displayWikiText = function (data) {
+  this.element.innerHTML = '';
+  const title = data.query.pages[Object.keys(data.query.pages)[0]].title;
+  const extract = data.query.pages[Object.keys(data.query.pages)[0]].extract;
 
-//https://en.wikipedia.org/w/api.php?pageids=18630637&format=json&action=query&prop=extracts&exsentences=3
-
-
-
+  const infoNode = document.createElement('div');
+  const header = document.createElement('h3');
+  header.textContent = title;
+  infoNode.innerHTML = extract;
+  this.element.appendChild(header);
+  this.element.appendChild(infoNode);
+};
 
 StreetView.prototype.getStreet = function (streetName) {
   const request = new Request(`https://nominatim.openstreetmap.org/search/gb/edinburgh/${streetName}/135?format=json&addressdetails=1`);
-  console.log(request);
   request.get( (data) => {
     let streetCoordinates = this.getStreetCoordinates(data);
     PubSub.publish('Map:attractions-loader', streetCoordinates);
@@ -46,18 +52,6 @@ StreetView.prototype.getStreetCoordinates = function (streetObject) {
                       };
     return streetCoordinates;
 };
-
-
-// const url = "https://munroapi.herokuapp.com/api/munros";
-//
-//
-// const request = new Request(url);
-// request.get().then((data) => {
-//   console.log("data is:");
-//   console.log(data);
-// }).catch((err) => {
-//   console.error(err)
-// });
 
 
 module.exports = StreetView;

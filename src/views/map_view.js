@@ -5,6 +5,7 @@ const MapView = function(){
 }
 
 
+
 MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Map:attractions-loaded', (event) => {
@@ -29,29 +30,22 @@ MapView.prototype.bindEvents = function () {
     };
 
     });
-
-    mymap.on('popupopen', this.parseContentForId);
-
-    // function onPopupOpen(e) {
-    //   var id = this.parseContentForId(e.popup._content);
-    //   console.log(id);
-    // };
-
+    mymap.on('popupopen', this.passPageId);
 
 
 };
 
-MapView.prototype.methodName = function () {
-  console.log("ASDASD");
-};
 
-MapView.prototype.parseContentForId = function (e) {
+
+MapView.prototype.passPageId = function (e) {
   var textToParse = e.popup._content;
-
   var indexOfFirst = textToParse.indexOf("d=");
   var indexOfSecond = textToParse.indexOf('">');
-  console.log(textToParse.slice(indexOfFirst+2, indexOfSecond));
-};
+  var id = textToParse.slice(indexOfFirst+2, indexOfSecond);
+  PubSub.publish('MapView:select-marker', id);
+  };
+
+
 
 
 module.exports = MapView;
