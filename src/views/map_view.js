@@ -4,15 +4,12 @@ const MapView = function(){
 
 }
 
-
-
 MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Map:attractions-loaded', (event) => {
     const attractions = event.detail;
 
     for(let attraction in attractions.query.pages){
-      console.log(attractions.query.pages[attraction]);
       attraction = attractions.query.pages[attraction];
 
       var marker = L.marker([attraction.coordinates[0].lat, attraction.coordinates[0].lon]).addTo(mymap);

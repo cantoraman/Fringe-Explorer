@@ -14,17 +14,22 @@
     </script>
   </head>
   <body>
-    <h1>Fringe Explorer</h1>
-    <h3>Did you just came for a Fringe show, but want more of Edinburgh?</h3>
-    <h4>Type in the street name of the Fringe Venue so that we can give you some suggestions to visit nearby</h4>
+    <div class="site-head">
+      <h1>Fringe Explorer</h1>
+      <h3>Did you just came for a Fringe show, but want more of Edinburgh?</h3>
+    </div>
+
     <div class="search-area">
+      <h4>Type in the street name of the Fringe Venue that you are currently at, so that we can give you some suggestions to visit nearby</h4>
       <form class="search-form" action="index.html" method="post">
         <label for="search-input">Search Nearby Attractions</label>
         <input type="text" name="searchInput" placeholder="Type your street in">
         <button type="submit" id="search-input">Search</button>
       </form>
     </div>
-    
+    <div class="container">
+
+
      <div id="map"></div>
      <script>
      var mymap = L.map('map').setView([55.953, -3.188], 13);
@@ -39,7 +44,12 @@
 
      </script>
      <div class="info-text">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at massa ac tellus tempor mollis. Sed condimentum tortor ante, eu tempor tellus suscipit ut. Morbi eget leo eu nulla aliquet tempus. Mauris commodo pellentesque orci eget elementum. Aenean et fermentum eros. Phasellus lorem magna, fermentum at placerat sit amet, facilisis at sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
+Maecenas blandit nisl tristique mauris luctus, vel commodo turpis convallis. Vivamus lacinia purus enim, in malesuada orci placerat nec. Vestibulum vel aliquam enim. Pellentesque id lorem dictum, viverra nibh a, pulvinar elit. Aliquam dignissim augue a purus fringilla, et dignissim risus dapibus. Nullam vehicula tellus non orci gravida, at imperdiet velit molestie. Phasellus ultrices cursus nunc, vitae laoreet nibh auctor id. In elementum congue libero, sed imperdiet urna imperdiet ut. Etiam nec posuere ligula, a mattis enim. Sed nec erat vel velit malesuada ullamcorper. Mauris sed augue aliquet, tristique libero et, faucibus dolor. Praesent volutpat iaculis lorem. Sed felis orci, euismod quis commodo et, accumsan eget tortor. Duis feugiat est dui, eget pharetra orci interdum et.
+
+Nullam maximus augue metus, sed congue sapien fermentum ut. Phasellus rhoncus consectetur vehicula. Praesent sed varius tortor. Praesent volutpat nulla sed augue aliquet, ut iaculis quam lobortis. Maecenas tellus ligula, blandit sed congue vitae, bibendum et leo. Pellentesque nec sem dui. Aenean quis ultrices diam, a maximus augue. Quisque vel pulvinar diam, non malesuada sem. Fusce odio augue, sodales auctor diam sit amet, euismod efficitur orci. Suspendisse facilisis congue ipsum ut feugiat. Vivamus mauris lacus, scelerisque vestibulum semper id, fermentum ut nisl. Praesent purus lacus, tempus vel metus vitae, pellentesque rhoncus neque. In elementum placerat euismod. Ut tincidunt porta elit sit amet fermentum. Maecenas semper felis non enim vulputate suscipit. Cras volutpat, ante a pellentesque tincidunt, purus diam bibendum massa, iaculis vestibulum lectus mi a tellus.</p>
      </div>
+    </div>
   </body>
 </html>
