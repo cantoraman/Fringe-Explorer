@@ -4,6 +4,10 @@ const MapView = function(){
 
 }
 
+MapView.prototype.deneme = function () {
+  console.log("ASDASD");
+};
+
 MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Map:attractions-loaded', (event) => {

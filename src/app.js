@@ -3,8 +3,18 @@ const StreetView = require('./views/street_view.js')
 const SearchView = require('./views/search_view.js')
 const MapView = require('./views/map_view.js')
 const Request = require('./helpers/request.js');
+const MapStarter = require('./helpers/map_starter.js');
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
+
+  mapStarter = new MapStarter();
+  mapStarter.initializeMap();
+
 
   const searchNode = document.querySelector('.search-form')
   const searchView = new SearchView(searchNode);
@@ -20,8 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   dataLoad = new DataLoad();
   dataLoad.bindEvents();
-
-
-
 
 });
