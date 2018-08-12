@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchView = new SearchView(searchNode);
   searchView.bindEvents();
 
+  streetView = new StreetView();
+  streetView.bindEvents();
+
 
   dataLoad = new DataLoad();
   dataLoad.getData(55.955, -3.182, 10000, 10);
