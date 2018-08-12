@@ -1,6 +1,7 @@
 const DataLoad = require('./models/dataLoad.js')
 const StreetView = require('./views/street_view.js')
 const SearchView = require('./views/search_view.js')
+const MapView = require('./views/map_view.js')
 const Request = require('./helpers/request.js');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,8 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
   streetView.bindEvents();
 
 
+  const mapView = new MapView();
+  mapView.bindEvents();
+
   dataLoad = new DataLoad();
   dataLoad.bindEvents();
+
+
   // dataLoad.getData(55.955, -3.182, 10000, 10);
   // str = new StreetView();
   // str.getStreet();
