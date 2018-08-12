@@ -9,10 +9,26 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Map:attractions-loaded', (event) => {
     const attractions = event.detail;
+  //  console.log(attractions);
     console.log(attractions);
 
-    var marker = L.marker([55.955, -3.182]).addTo(mymap);
-    marker.bindPopup('<b>Hello world!</b><br>I am a popup.<br><img src="a.png" alt="some image">').openPopup();
+    for(let attraction in attractions.query.pages){
+      console.log(attractions.query.pages[attraction]);
+      attraction = attractions.query.pages[attraction];
+
+      var marker = L.marker([attraction.coordinates[0].lat, attraction.coordinates[0].lon]).addTo(mymap);
+      if(attraction.thumbnail!=null){
+      marker.bindPopup(`<a href="https://en.wikipedia.org/?curid=${attraction.pageid}"><b>${attraction.title}</b></a><br><img src="${attraction.thumbnail.source}">`);
+      }
+      else
+      {
+      marker.bindPopup(`<b>${attraction.title}</b>`);
+      }
+
+      //.openPopup();
+
+    }
+
 
     var popup = L.popup(maxWidth=5)
     .setLatLng([55.955, -3.150])

@@ -17,7 +17,8 @@ DataLoad.prototype.bindEvents = function () {
 };
 
 DataLoad.prototype.getData = function (latitude, longitude, radius, limit) {
-  const request = new Request(`https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&list=geosearch&gscoord=${latitude}|${longitude}&gsradius=${radius}&gslimit=${limit}`);
+  const request = new //Request(`https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&list=geosearch&gscoord=${latitude}|${longitude}&gsradius=${radius}&gslimit=${limit}`);
+  Request(`https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&prop=coordinates|pageimages|pageterms&colimit=50&piprop=thumbnail&pithumbsize=144&pilimit=50&wbptterms=description&generator=geosearch&ggscoord=${latitude}|${longitude}&ggsradius=${radius}&ggslimit=${limit}`);
   request.get( (data) => {
       PubSub.publish('Map:attractions-loaded', data);
   });
