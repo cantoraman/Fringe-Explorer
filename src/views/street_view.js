@@ -21,14 +21,13 @@ StreetView.prototype.getStreet = function (streetName) {
   console.log(request);
   request.get( (data) => {
     let streetCoordinates = this.getStreetCoordinates(data);
-    console.log(streetCoordinates);
-    PubSub.publish('Map:attractions-loaded', streetCoordinates);
+    PubSub.publish('Map:attractions-loader', streetCoordinates);
   });
 };
 
 StreetView.prototype.getStreetCoordinates = function (streetObject) {
     let streetCoordinates = {
-                        lattitude: streetObject[0].lat,
+                        latitude: streetObject[0].lat,
                         longitude: streetObject[0].lon
                       };
     return streetCoordinates;
