@@ -6,6 +6,16 @@ const StreetView = function (){
 
 };
 
+StreetView.prototype.bindEvents = function () {
+  PubSub.subscribe('SearchView:search-request', (event) => {
+      const streetName = event.detail;
+      this.getStreet(streetName);
+    });
+
+};
+
+
+
 StreetView.prototype.getStreet = function (streetName) {
   const request = new Request("https://nominatim.openstreetmap.org/search/gb/edinburgh/leith%20walk/135?format=json&polygon=1&addressdetails=1");
   console.log(request);

@@ -10,9 +10,7 @@ SearchView.prototype.bindEvents = function () {
 
   this.element.addEventListener('submit', (event) => {
       event.preventDefault();
-      console.log(event);
       const searchInput = event.target.searchInput.value;
-      console.log(searchInput);
       PubSub.publish('SearchView:search-request', searchInput);
     });
 
